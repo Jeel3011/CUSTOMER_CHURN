@@ -10,12 +10,21 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 
 from src.components.data_transformation import DataTransformation
+from src.components.model_trainer import ModelTrainer, ModelTrainerConfig
+
+
+
+
 @dataclass
 class DataIngestionConfig:
     train_data_path:str=os.path.join('artifacts',"train.csv")
     test_data_path:str=os.path.join('artifacts',"test.csv")
     raw_data_path:str=os.path.join('artifacts',"data.csv")
     source_data_path:str=os.path.join('Notebook','data','customer_churn.csv')
+
+
+
+
 class DataIngestion:
     def __init__(self):
         self.ingestion_config=DataIngestionConfig()
@@ -48,10 +57,15 @@ class DataIngestion:
         except Exception as e:
             logging.info("Exception occured in data ingestion stage")
             raise CustomException(e,sys)
-        
+
+
+
 if __name__=="__main__":
     obj = DataIngestion()
     train_data,test_data = obj.initiate_data_ingestion()
 
     data_transf=DataTransformation()
     train_array,test_array,_=data_transf.start_data_transformation(train_data,test_data)
+
+    ModelTrainer_obj=ModelTrainer()
+    print(ModelTrainer_obj.initiate_model_trainer(train_array,test_array))
