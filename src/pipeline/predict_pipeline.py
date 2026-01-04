@@ -59,37 +59,38 @@ class PredictPipeline:
             raise CustomException(e, sys)
 
 
-
-
 class CustomData:
     def __init__(
         self,
-        tenure: int,
-        monthly_charges: float,
-        total_charges: float,
-        contract_type: str,
-        payment_method: str,
-        internet_service: str,
-        tech_support: str
+        customer_id: int,
+        tenure_months: int,
+        monthly_usage: float,
+        subscription_plan: str,
+        monthly_revenue: float,
+        support_tickets: int,
+        last_login_days: int,
+        payment_delay: int
     ):
-        self.tenure = tenure
-        self.monthly_charges = monthly_charges
-        self.total_charges = total_charges
-        self.contract_type = contract_type
-        self.payment_method = payment_method
-        self.internet_service = internet_service
-        self.tech_support = tech_support
+        self.customer_id = customer_id
+        self.tenure_months = tenure_months
+        self.monthly_usage = monthly_usage
+        self.subscription_plan = subscription_plan
+        self.monthly_revenue = monthly_revenue
+        self.support_tickets = support_tickets
+        self.last_login_days = last_login_days
+        self.payment_delay = payment_delay
 
     def get_data_as_dataframe(self):
         try:
             data = {
-                "tenure": [self.tenure],
-                "MonthlyCharges": [self.monthly_charges],
-                "TotalCharges": [self.total_charges],
-                "Contract": [self.contract_type],
-                "PaymentMethod": [self.payment_method],
-                "InternetService": [self.internet_service],
-                "TechSupport": [self.tech_support],
+                "customer_id": [self.customer_id],
+                "tenure_months": [self.tenure_months],
+                "monthly_usage": [self.monthly_usage],
+                "subscription_plan": [self.subscription_plan],
+                "monthly_revenue": [self.monthly_revenue],
+                "support_tickets": [self.support_tickets],
+                "last_login_days": [self.last_login_days],
+                "payment_delay": [self.payment_delay]
             }
 
             return pd.DataFrame(data)

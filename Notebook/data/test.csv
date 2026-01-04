@@ -1,0 +1,11 @@
+customer_id,tenure_months,monthly_usage,subscription_plan,monthly_revenue,support_tickets,last_login_days,payment_delay
+101,12,88.45,Pro,50,1,14,0
+102,4,22.30,Basic,20,3,45,1
+103,36,140.10,Enterprise,120,0,5,0
+104,8,65.00,Pro,50,2,30,1
+105,60,110.25,Enterprise,120,0,2,0
+106,15,40.75,Basic,20,4,60,2
+107,24,98.60,Pro,50,1,20,0
+108,3,10.50,Basic,20,5,90,3
+109,48,130.80,Enterprise,120,0,7,0
+110,6,55.20,Pro,50,2,35,1
