@@ -9,11 +9,6 @@ services:
     ports:
       - "8000:8000"
     restart: always
-    environment:
-      - S3_BUCKET=${S3_BUCKET:-}
-      - AWS_REGION=${AWS_REGION:-us-east-1}
-      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID:-}
-      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY:-}
 
   ui:
     build:
@@ -26,4 +21,4 @@ services:
       - api
     restart: always
     environment:
-      - API_URL=${API_URL:-http://api:8000}
+      - API_URL=http://api:8000
