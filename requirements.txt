@@ -4,11 +4,9 @@ scikit-learn
 matplotlib
 seaborn
 xgboost
-catboost
-flask
 streamlit
 fastapi
 uvicorn
 python-multipart
 requests
--e .
+plotly

@@ -7,11 +7,13 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import time
 from datetime import datetime
+import os
 
 # ===============================
 # FASTAPI CONFIG
 # ===============================
-API_URL = "http://127.0.0.1:8000"
+API_URL = os.getenv("API_URL", "http://localhost:8000")
+
 
 # ===============================
 # Page Configuration
@@ -173,7 +175,7 @@ if uploaded_file is not None:
     with st.spinner("🚀 Calling FastAPI for predictions..."):
         response = requests.post(
             f"{API_URL}/predict_csv",
-            files={"file": uploaded_file.getvalue()}
+            files={"file": uploaded_file}
         )
 
     if response.status_code != 200:

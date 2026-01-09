@@ -46,20 +46,20 @@ def predict_csv(file: UploadFile = File(...)):
     results = kpi.compute_kpis()
 
     return {
-    "kpis": {
-        "total_customers": int(results["total_customers"]),
-        "high_risk_customers": int(results["high_risk_customers"]),
-        "medium_risk_customers": int(results["medium_risk_customers"]),
-        "low_risk_customers": int(results["low_risk_customers"]),
-        "average_churn_probability": float(results["average_churn_probability"])
-    },
-    "predictions": [
-        {
-            "customer_id": int(row["customer_id"]),
-            "churn_probability": float(row["churn_probability"]),
-            "risk_level": str(row["risk_level"])
-        }
-        for _, row in predictions.iterrows()
-    ]
-}
+        "kpis": {
+            "total_customers": int(results["total_customers"]),
+            "high_risk_customers": int(results["high_risk_customers"]),
+            "medium_risk_customers": int(results["medium_risk_customers"]),
+            "low_risk_customers": int(results["low_risk_customers"]),
+            "average_churn_probability": float(results["average_churn_probability"])
+        },
+        "predictions": [
+            {
+                "customer_id": int(row["customer_id"]),
+                "churn_probability": float(row["churn_probability"]),
+                "risk_level": str(row["risk_level"])
+            }
+            for _, row in predictions.iterrows()
+        ]
+    }
 
